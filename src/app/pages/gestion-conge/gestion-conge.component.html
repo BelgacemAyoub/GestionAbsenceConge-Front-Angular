@@ -1,0 +1,60 @@
+<div class="card">
+    <div class="card-header">
+  
+      <h2 class="card-title"> Liste des congés demandées </h2>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive ps">
+        <button class="btn btn-primary" (click)="toAddConge()"><i class="fas fa-calendar-plus"></i></button> <br><br>
+        <table class="table table-hover ">
+          <thead class=" text-primary">
+            <tr>
+              <th>
+                Id
+              </th>
+              <th>
+                Nom
+              </th>
+              <th>
+                Prenom
+              </th>
+              <th>
+                Solde Congé
+              </th>
+              <th>
+                Etat
+              </th>
+          </thead>
+          <tbody>
+
+            <tr [class]="VerificationCongeEnAttente(user.conges)?'alert alert-danger':'alert alert-success'"
+                *ngFor="let user of usersList ;let index = index" style="cursor: pointer;"
+                (click)="detailUser(user.id)"
+            >
+              <td>
+                {{user.id}}
+              </td>
+              <td>
+                {{user.nom|uppercase}}
+              </td>
+              <td>
+                {{user.prenom|uppercase}}
+              </td>
+              <td>
+                {{user.soldeConge}}
+              </td>
+              <td>
+                {{VerificationCongeEnAttente(user.conges)? 'Il y a des demandes en attente !': 'Toutes les demandes sont vérifiées'}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+          <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps__rail-y" style="top: 0px; right: 0px;">
+          <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>

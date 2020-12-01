@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h2 class="mb-0">{{edit_mode == 'modifier' ? 'Modifier' : 'Ajouter'}}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="saveAbsence()" #formulaire="ngForm">
+
+            <hr class="my-4">
+            <h3 class="heading-small text-muted mb-4">
+                Authentification</h3>
+            <div class="pl-lg-4">
+                <div class="form-group">
+                    <div class="row">
+                        <!-- Date de début -->
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Select date de début" name="dateDebut" ngModel
+                                    ngbDatepicker #d="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                                        type="button">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Date de fin -->
+
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Select date de fin" name="dateFin" ngModel
+                                    ngbDatepicker #df="ngbDatepicker">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="df.toggle()"
+                                        type="button">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <hr class="my-4">
+
+            <!-- Buttons -->
+            <div class="">
+                <div class=" custom-margin">
+                    <button class="btn btn-primary" type="submit" [disabled]="formulaire.invalid">
+                        {{edit_mode == 'modifier' ? 'Modifier' : 'Ajouter'}}
+                    </button>
+                </div>
+
+                <div class="custom-margin">
+                    <button class="btn btn-secondary" type="button" (click)="onClear()">
+                        Vider
+                    </button>
+                </div>
+
+                <div class=" custom-margin">
+                    <button class="btn btn-danger" type="button" (click)="onDelete()" *ngIf="edit_mode == 'modifier'">
+                        Supprimer
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="card" *ngIf="authService.isAdmin() || authService.isDirecteur()">
+  <div class="card-header">
+    <h2 class="card-title">Profil utilisateur</h2>
+  </div>
+  <div class="card-body" *ngIf="userList">
+    <div class="table-responsive ps">
+      <button class="btn btn-primary" (click)="toAddUser()"><i class="fas fa-user-plus"></i></button> <br><br>
+      <table class="table table-hover">
+        <thead class=" text-primary">
+          <tr>
+            <th>
+              Id
+            </th>
+            <th>
+              Login
+            </th>
+            <th>
+              Password
+            </th>
+            <th>
+              Nom
+            </th>
+            <th>
+              Prenom
+            </th>
+            <th>
+              Mail
+            </th>
+            <th>
+              Tel
+            </th>
+            <th>
+              Active
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- [class] pour mettre le contenue de la class d'une maniere dynamique avec une condition  -->
+          <tr *ngFor="let user of userList" style="cursor: pointer;" (click)="editUser(user.id)"
+            [class]="user.accepted == false ? 'alert alert-danger' : 'alert alert-info'">
+            <td>
+              {{user.id}}
+            </td>
+            <td>
+              {{user.login|uppercase}}
+            </td>
+            <td>
+              {{user.password|trancate}}
+            </td>
+            <td>
+              {{user.nom|uppercase}}
+            </td>
+            <td>
+              {{user.prenom|uppercase}}
+            </td>
+            <td>
+              {{user.mail}}
+            </td>
+            <td>
+              {{user.tel}}
+            </td>
+            <td>
+              {{user.accepted?'Active':'Désactive'}}
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+      </div>
+      <div class="ps__rail-y" style="top: 0px; right: 0px;">
+        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+      </div>
+    </div>
+  </div>
+</div>

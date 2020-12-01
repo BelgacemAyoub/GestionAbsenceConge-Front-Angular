@@ -1,0 +1,73 @@
+<div class="card">
+    <div class="card-header">
+  
+      <h2 class="card-title"> Liste des congés de {{user.nom|uppercase}} {{user.prenom|uppercase}} </h2>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive ps">
+        <div class="col-md-3 alert alert-info">
+            {{user.login|uppercase}} a <b>{{user.soldeConge}}</b> jours du solde congé.
+        </div>
+
+          <div class="alert alert-primary" *ngIf="user.conges.length == 0">
+            <p>Aucun congé demandé par {{user.login|uppercase}}</p>
+        </div>
+
+        <table class="table table-hover" *ngIf="user.conges.length > 0">
+          <thead class=" text-primary">
+            <tr>
+              <th>
+                Id
+              </th>
+              <th>
+                Début
+              </th>
+              <th>
+                Fin
+              </th>
+              <th>
+                raison
+              </th>
+              <th>
+                Payer
+              </th>
+              <th>
+                Actif
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- [class] pour mettre le contenue de la class d'une maniere dynamique avec une condition  -->
+            <tr *ngFor="let conge of conges" style="cursor: pointer;" (click)="editConge(conge.id)"
+                [class]= "conge.confirmation == false ? 'alert alert-danger' : 'alert alert-success'">
+              <td>
+                {{conge.id}}
+              </td>
+              <td>
+                {{conge.dateDebut}}
+              </td>
+              <td>
+                {{conge.dateFin}}
+              </td>
+              <td>
+                {{conge.raison}}
+              </td>
+              <td>
+                {{conge.payer ?'Payé':'Non payé'}}
+              </td>
+              <td>
+                {{conge.confirmation ?'Confirmé':'En attente...'}}
+              </td>
+  
+            </tr>
+          </tbody>
+        </table>
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+          <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps__rail-y" style="top: 0px; right: 0px;">
+          <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>

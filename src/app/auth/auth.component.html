@@ -1,0 +1,26 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+      <div class="alert alert-danger" *ngIf="mode==1">
+        <strong>Login ou mot de passe incorrecte!</strong>
+      </div>
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <i class="fas fa-user-circle fa-7x"></i>
+      </div>
+  
+      <!-- Login Form -->
+      <form (ngSubmit) = "onLogin(LoginForm)" #LoginForm = "ngForm">
+        <input type="text" id="login" class="fadeIn second" ngModel name="login" placeholder="login">
+        <input type="password" id="password" class="fadeIn third pwd-input" ngModel name="password" placeholder="password">
+        <input type="submit" class="fadeIn fourth submit-login-GCA" value="Log In">
+      </form>
+  
+      <!-- Inscription -->
+      <div id="formFooter">
+        <a class="underlineHover" (click)="redirectToAddUser()" style="cursor: pointer;">Inscription</a>
+      </div>
+  
+    </div>
+  </div>

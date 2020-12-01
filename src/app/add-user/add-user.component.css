@@ -1,0 +1,38 @@
+.dropdown{
+    margin-left: 15%;
+}
+
+.ng-invalid.ng-tou  hed{
+    border-color: red;
+}
+.ng-valid.ng-touched{
+    border-color: green;
+}
+.custom-margin {
+    display: inline-block;
+    margin: 0px 5px 10px 5px;
+    width: 100px;
+}
+.custom-margin button {
+    width: 100%;
+}
+
+.etat-user{
+    text-align: center;
+    margin: auto;   
+    padding-left: 80px;
+}
+
+.container-etat-user{
+    max-width: 18%;
+}
+
+mat-radio-button{
+    padding: 10px 10px 10px 10px;
+}
+
+@media screen and (max-width: 640px) {
+    .custom-margin {
+        display: block;
+    }
+  }

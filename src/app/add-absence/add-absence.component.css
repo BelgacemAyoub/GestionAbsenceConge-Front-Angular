@@ -1,0 +1,25 @@
+.dropdown{
+    margin-left: 15%;
+}
+
+.ng-invalid.ng-touched{
+    border-color: red;
+}
+.ng-valid.ng-touched{
+    border-color: green;
+}
+.custom-margin {
+    display: inline-block;
+    margin: 0px 5px 10px 5px;
+    width: 100px;
+}
+.custom-margin button {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 640px) {
+    .custom-margin {
+        display: block;
+    }
+  }
